@@ -73,7 +73,7 @@ $receipt['items'][] = array(
 if ($arOrder[PRICE_DELIVERY]>0) {
 	$receipt['items'][] = array(
 		'quantity' => 1,
-		'text' => substr('Доставка', 0, 128),
+		'text' => substr('Г„Г®Г±ГІГ ГўГЄГ ', 0, 128),
 		'tax' => 1,
 		'price' => array(
 			'amount' => number_format($arOrder[PRICE_DELIVERY], 2, '.', ''),
@@ -88,8 +88,8 @@ $eValue = \Bitrix\Main\Web\Json::encode($receipt, $options = null);
 $Sum = number_format($Sum, 2, ',', '');
 ?>
 <font class="tablebodytext">
-Услугу предоставляет сервис онлайн-платежей <b>&laquo;Яндекс.Касса&raquo;</b>.<br /><br />
-Сумма к оплате по счету: <b><?=$Sum?> р.</b><br />
+РЈСЃР»СѓРіСѓ РїСЂРµРґРѕСЃС‚Р°РІР»СЏРµС‚ СЃРµСЂРІРёСЃ РѕРЅР»Р°Р№РЅ-РїР»Р°С‚РµР¶РµР№ <b>&laquo;РЇРЅРґРµРєСЃ.РљР°СЃСЃР°&raquo;</b>.<br /><br />
+РЎСѓРјРјР° Рє РѕРїР»Р°С‚Рµ РїРѕ СЃС‡РµС‚Сѓ: <b><?=$Sum?> СЂ.</b><br />
 <br />
 </font>
 <?if(strlen(CSalePaySystemAction::GetParamValue("IS_TEST")) > 0):
@@ -107,13 +107,13 @@ $Sum = number_format($Sum, 2, ',', '');
 <input name="Sum" value="<?=$Sum?>" type="hidden">
 <input name="paymentType" value="<?=$paymentType?>" type="hidden">
 <input name="cms_name" value="1C-Bitrix" type="hidden">
-<input name="ym_merchant_receipt" value="<?=$eValue?>" type="hidden"><?//overt?>
+<input name="ym_merchant_receipt" value='<?=$eValue?>' type="hidden"><?//overt?>
 
 <!-- <br /> -->
-<!-- Детали заказа:<br /> -->
-<!-- <input name="OrderDetails" value="заказ №<?=$orderNumber?> (<?=$orderDate?>)" type="hidden"> -->
+<!-- Р”РµС‚Р°Р»Рё Р·Р°РєР°Р·Р°:<br /> -->
+<!-- <input name="OrderDetails" value="Р·Р°РєР°Р· в„–<?=$orderNumber?> (<?=$orderDate?>)" type="hidden"> -->
 <br />
-<input name="BuyButton" value="Оплатить" type="submit">
+<input name="BuyButton" value="РћРїР»Р°С‚РёС‚СЊ" type="submit">
 
-</font><p><font class="tablebodytext"><b>Обратите внимание:</b> если вы откажетесь от покупки, для возврата денег вам придется обратиться в магазин.</font></p>
+</font><p><font class="tablebodytext"><b>РћР±СЂР°С‚РёС‚Рµ РІРЅРёРјР°РЅРёРµ:</b> РµСЃР»Рё РІС‹ РѕС‚РєР°Р¶РµС‚РµСЃСЊ РѕС‚ РїРѕРєСѓРїРєРё, РґР»СЏ РІРѕР·РІСЂР°С‚Р° РґРµРЅРµРі РІР°Рј РїСЂРёРґРµС‚СЃСЏ РѕР±СЂР°С‚РёС‚СЊСЃСЏ РІ РјР°РіР°Р·РёРЅ.</font></p>
 </form>
